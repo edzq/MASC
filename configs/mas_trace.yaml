@@ -1,0 +1,35 @@
+# Fitting MASC to a MAS framework's own execution traces (paper Sec. 4.2,
+# "MASC Integration with Existing Frameworks"). These traces carry no error
+# annotations: the detector is fit on normal behaviour and then gates the
+# correction agent at inference time.
+#
+# data_root / subset / split_dir are unused here -- scripts/run_mas_detector.py
+# takes --trace_dir instead -- but are kept so one Config type serves both paths.
+data_root: data/Who&When
+subset: Algorithm-Generated
+split_dir: data/splits
+include_ground_truth: false
+include_query: true
+
+encoder_model: sentence-transformers/all-MiniLM-L6-v2
+base_model: meta-llama/Llama-3.1-8B-Instruct
+freeze_backbone: true
+device_map: auto
+dtype: bfloat16
+num_heads: 4
+
+epochs: 10
+lr: 1.0e-4
+weight_decay: 0.0
+lambda_proto: 0.1
+loss_threshold: 0.1
+seed: 42
+
+scoring_mode: teacher_forcing
+alpha: 1.0
+beta: 0.1
+# The gate delta. Raise it for fewer, higher-precision interventions.
+threshold: 0.5
+test_truncation: full
+
+output_dir: outputs/masc/mas

@@ -1,0 +1,26 @@
+# Experiment artifacts
+outputs/
+outputs_no_answer/
+figures/
+*.pt
+*.pth
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Credentials -- never commit these
+.env
+*.key
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store

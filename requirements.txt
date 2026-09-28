@@ -1,0 +1,20 @@
+# Core: MASC detector (masc/, scripts/)
+torch>=2.1
+transformers>=4.44
+sentence-transformers>=3.0
+accelerate>=0.30          # required by device_map="auto" for sharded backbones
+numpy>=1.24
+scikit-learn>=1.3
+PyYAML>=6.0
+tqdm>=4.66
+
+# Analysis and figures (analysis/)
+matplotlib>=3.7
+scipy>=1.10
+
+# LLM-as-detector baselines (baselines/llm_as_detector/)
+openai>=1.40              # AzureOpenAI client
+python-dotenv>=1.0        # optional .env for AZURE_OPENAI_* credentials
+
+# MAST data-prep utilities (tools/mast/)
+huggingface-hub>=0.24

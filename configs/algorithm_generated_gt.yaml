@@ -1,0 +1,31 @@
+# Who&When -- Algorithm-Generated subset, w/ GT (the 'Auto w/ GT' column of Table 1).
+# Hyperparameters follow Table 6 of the paper.
+data_root: data/Who&When
+subset: Algorithm-Generated
+split_dir: data/splits
+include_ground_truth: true
+# Algorithm-Generated trajectories carry a separate task query, prepended as
+# the first context item.
+include_query: true
+
+encoder_model: sentence-transformers/all-MiniLM-L6-v2
+base_model: meta-llama/Llama-3.1-8B-Instruct
+freeze_backbone: true
+device_map: auto
+dtype: bfloat16
+num_heads: 4
+
+epochs: 5
+lr: 5.0e-5
+weight_decay: 0.0
+lambda_proto: 0.1
+loss_threshold: 0.1
+seed: 42
+
+scoring_mode: teacher_forcing
+alpha: 0.8
+beta: 0.2
+threshold: 0.5
+test_truncation: at_error
+
+output_dir: outputs/masc/algorithm_generated_gt
