@@ -28,7 +28,7 @@ MASC treats step-level error detection as **history-conditioned, unsupervised
 anomaly scoring**, and acts on it in real time:
 
 <div align="center">
-  <img src="assets/masc_overview.png" alt="MASC overview" width="760">
+  <img src="assets/masc_overview.png" alt="MASC overview: real-time detector, corrector, and next-execution reconstruction with a prototype prior" width="900">
 </div>
 
 1. **Contextual encoding.** The task query, agent roles and the agent
